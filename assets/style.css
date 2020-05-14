@@ -1,0 +1,45 @@
+button{
+    color: white;
+    background-color: teal;
+    font-size: 16px;
+}
+.form-inline{
+    position: relative;
+    float: right;
+    padding-right: 250px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+    top: 5px;
+}
+body{
+    background-color: beige;
+}
+
+img{
+    /* inline-size: inherit;
+    inset-block-start: top;
+    block-size: auto initial;
+    float: right; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-wrap: nowrap;
+    
+    
+}
+#gif-here {
+	clear: both;
+	display: inline;
+	flex-wrap: wrap;
+}
+#show {
+	margin-right: 3px;
+	margin-left: 3px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+p{
+    
+    padding: 5px;
+}

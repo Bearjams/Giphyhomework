@@ -1,15 +1,15 @@
 $(document).ready(function(){
 
-    var instruments = ["Drums", "Guitar", "Saxophone", "Piano", "Clarinet", "Violin"];
+    var instruments = [];
 
 
     function displayInstrument() {
 
-        var u = $(this).attr("data-name");
+        var u = $(this).data("search");
 
         console.log(u)
 
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + u + "&api_key=MyXPVASPSwjUpqD3NaBJWwg9TNG3gqQZ";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + u + "&api_key=MyXPVASPSwjUpqD3NaBJWwg9TNG3gqQZ&limit=10";
 
         console.log(queryURL)
 
@@ -17,7 +17,7 @@ $(document).ready(function(){
             url: queryURL,
             method: "GET"
         })
-          .then(function(response) {
+          .done(function(response) {
 
               var results = response.data;
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
                 var instrumentImage = $("<img>");
 
                 instrumentImage.attr("src", staticSrc);
-        	    instrumentImage.addClass("instrumentGiphy");
+        	    instrumentImage.addClass("show");
         	    instrumentImage.attr("data-state", "still");
         	    instrumentImage.attr("data-still", staticSrc);
                 instrumentImage.attr("data-animate", defaultAnimatedSrc);
@@ -51,54 +51,89 @@ $(document).ready(function(){
         });  
     }
     
-    function renderButtons(){
+    $("#addInst").on("click", function(event){
 
-        $("#buttons-view").empty();
+        event.preventDefault();
 
-        for (var i = 0; i < instruments.length; i++) {
+        var newInst = $("#instrumentinput").val().trim();
 
-            var a = $("<button>");    
+        instruments.push(newInst)
+        console.log(instruments)
 
-            a.addClass("inst-btn");
+        $("#instrumentinput").val('');
 
-            a.attr("data-name", instruments[i]);
+        displayButtons();
+    });
 
+    function displayButtons(){
+
+        $("#new-buttons").empty();
+
+        for(var i = 0; i < instruments.length; i++){
+
+            var a = $('<button class="btn btn-primary">');
+
+            a.attr("id", "show");
+            a.attr("data-search", instruments[i]);
             a.text(instruments[i]);
-
-            $("#buttons-view").append(a);
-
+            $("#new-buttons").append(a);
         }
 
     }
 
-    $("#add-instrument").on("click", function(event){
+    displayButtons()
 
-        event.preventDefault();
+    $(document).on("click", "#show", displayInstrument);
 
-        var u = $("#instrument-input").val().trim();
+    $(document).on("click", ".show", pauseGif);
+    // function renderButtons(){
 
-        instruments.push(u);
+    //     $("#buttons-view").empty();
 
-        renderButtons();
-    });
+    //     for (var i = 0; i < instruments.length; i++) {
 
-    // $(".instrumentGiphy").on("click", function() {
+    //         var a = $("<button>");    
 
-    //     var state = $(this).attr("data-state")
+    //         a.addClass("inst-btn");
 
-    //     if(state === "still"){
-    //         var animate = $(this).attr("data-animate");
-    //         $(this).attr("src", animate);
-    //         $(this).attr("data-state", "animate");
-    //       }else{
-    //         var still = $(this).attr("data-still");
-    //         $(this).attr("src", still);
-    //         $(this).attr("data-state", "still")
-    //       }
-    // })
-    $(document).on("click", ".movie-btn", displayInstrument);
+    //         a.attr("data-name", instruments[i]);
 
-    renderButtons();
+    //         a.text(instruments[i]);
+
+    //         $("#buttons-view").append(a);
+
+    //     }
+
+    // }
+
+    // $("#add-instrument").on("click", function(event){
+
+    //     event.preventDefault();
+
+    //     var u = $("#instrument-input").val().trim();
+
+    //     instruments.push(u);
+
+    //     renderButtons();
+    // });
+
+    function pauseGif() {
+
+        var state = $(this).attr("data-state")
+
+        if(state === "still"){
+            var animate = $(this).attr("data-animate");
+            $(this).attr("src", animate);
+            $(this).attr("data-state", "animate");
+          }else{
+            var still = $(this).attr("data-still");
+            $(this).attr("src", still);
+            $(this).attr("data-state", "still")
+          }
+    }
+    // $(document).on("click", ".movie-btn", displayInstrument);
+
+    // renderButtons();
 
 
 });

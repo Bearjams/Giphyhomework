@@ -9,43 +9,30 @@
     <script type="text/javascript" src="assets/app.js"></script>
 </head>
 <body>
-<h1><strong>Instrment Gif</strong></h1>
-
-   
-    <div id="buttons-view">
-
-    <form id="instrument-form">
-        <label for="instrument-input">Add an Instrument!</label>
-        <input type="text" id="instrument-input">
-        <br>
-
-        <!-- Button triggers new movie to be added -->
-        <input id="add-instrument" type="submit" value="Submit">
-        </form>
+    
+<form class="form-inline" id="instrument-input">
+    <div class="form-group">
+      <label for="instrumentinput">Add a New Instrument</label>
+      <br>
+      <input type="text" width="100px" id="instrumentinput">
     </div>
+   
+    <input id="addInst" type="submit" value="submit">
+  </form>
 
 <div id="buttons">
-    <button data-instrument="Drums">
-        Drums
-      </button>
-    <button data-instrument="Guitar">
-        Guitar
-      </button>
-    <button data-instrument="Saxophone">
-        Saxophone
-      </button>
-    <button data-instrument="Piano">
-        Piano
-      </button>
-    <button data-instrument="Clarinet">
-        Clarinet
-      </button>
-    <button data-instrument="Violin">
-        Violin
-      </button>
+    <button class="btn btn-primary" id="show" data-search="Drums">Drums</button>    
+    <button class="btn btn-primary" id="show" data-search="Saxophone">Saxophone</button>
+    <button class="btn btn-primary" id="show" data-search="Piano">Piano</button>
+    <button class="btn btn-primary" id="show" data-search="Clarinet">Clarinet</button>
+    <button class="btn btn-primary" id="show" data-search="Violin">Violin</button>
+    <button class="btn btn-primary" id="show" data-search="Guitar">Guitar</button>
 </div>
+<div id="new-buttons"></div>
 
-<div id="gif-here" class="instrumentGiphy"></div>
+<div id="gif-here"></div>
+
+
 
 </div>
   
