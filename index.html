@@ -11,6 +11,19 @@
 <body>
 <h1><strong>Instrment Gif</strong></h1>
 
+   
+    <div id="buttons-view">
+
+    <form id="instrument-form">
+        <label for="instrument-input">Add an Instrument!</label>
+        <input type="text" id="instrument-input">
+        <br>
+
+        <!-- Button triggers new movie to be added -->
+        <input id="add-instrument" type="submit" value="Submit">
+        </form>
+    </div>
+
 <div id="buttons">
     <button data-instrument="Drums">
         Drums
@@ -18,15 +31,21 @@
     <button data-instrument="Guitar">
         Guitar
       </button>
-    <button data-instrument="Bass">
-        Bass
+    <button data-instrument="Saxophone">
+        Saxophone
       </button>
     <button data-instrument="Piano">
         Piano
       </button>
+    <button data-instrument="Clarinet">
+        Clarinet
+      </button>
+    <button data-instrument="Violin">
+        Violin
+      </button>
 </div>
 
-<div id="gif-here">
+<div id="gif-here" class="instrumentGiphy"></div>
 
 </div>
   
