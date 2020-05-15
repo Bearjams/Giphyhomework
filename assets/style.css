@@ -12,7 +12,7 @@ button{
     top: 5px;
 }
 body{
-    background-color: beige;
+    background-image: url(https://i.pinimg.com/originals/5b/30/cf/5b30cfffef3f5a05460f73d8557d780e.jpg);
 }
 
 img{
@@ -31,7 +31,9 @@ img{
 #gif-here {
 	clear: both;
 	display: inline;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
+    
+    
 }
 #show {
 	margin-right: 3px;
@@ -40,6 +42,9 @@ img{
 	margin-bottom: 3px;
 }
 p{
-    
+    color: white;
     padding: 5px;
+}
+#instrument-input{
+    color: lightcoral;
 }
